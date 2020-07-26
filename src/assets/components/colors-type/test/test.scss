@@ -1,22 +1,5 @@
 /***** Color Palette  *****/
 
-@mixin config-icon-colors($prefix, $colors...) {
-    @each $i in $colors {
-        .#{$prefix}#{nth($i, 1)} {
-            background: nth($i, 2);
-        }
-    }
-}
-@include config-icon-colors('color-palette_',
-    'dark-shade'   $color-dark-shade,
-    'dark-shade75' $color-dark-shade75,
-    'dark-shade50' $color-dark-shade50,
-    'dark-shade25' $color-dark-shade25,
-    'dark-shade05' $color-dark-shade05,
-    'purple'       $color-purple,
-    'green'        $color-green
-);
-
 .color-palette {
     display: grid; 
     grid-template-columns: auto 1fr;
@@ -47,7 +30,22 @@
         color: $color-dark-shade;
     }
 
-
+    @mixin colors($colors...) {
+        @each $i in $colors {
+            &#{nth($i, 1)} {
+                background: nth($i, 2);
+            }
+        }
+    }
+    @include colors(
+        '_dark-shade'   $color-dark-shade,
+        '_dark-shade75' $color-dark-shade75,
+        '_dark-shade50' $color-dark-shade50,
+        '_dark-shade25' $color-dark-shade25,
+        '_dark-shade05' $color-dark-shade05,
+        '_purple'       $color-purple,
+        '_green'        $color-green
+    )
 
 }
 
