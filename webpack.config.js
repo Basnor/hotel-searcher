@@ -33,11 +33,19 @@ const plugins = () => {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css'
-        })
+        }),
+        ...tests('colors-type')
     ]
 
     return base
-}  
+}
+
+function tests() {
+    return [].map.call(arguments, page =>  new HtmlWebpackPlugin({
+      template: "./src/assets/components/" + page + "/test/index.pug",
+      filename: "tests/" + page + ".html"
+    }))
+  }
 
 const config = {
     mode: 'development',

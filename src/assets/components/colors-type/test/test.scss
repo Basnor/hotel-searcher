@@ -1,0 +1,9 @@
+@import '../colors.scss';
+
+@include rect(#1F2041, "100%");
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

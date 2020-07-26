@@ -1,0 +1,37 @@
+/***** Variables *****/
+
+$color-dark-shade: #1F2041;
+$color-purple: #BC9CFF;
+$color-green: #6FCF97;
+
+.color-palette {
+    &_purple {
+        background: $color-purple;
+    }
+
+    &_green {
+        background: $color-green;
+    }
+
+    &_dark_shade {
+        background: $color-dark-shade;
+        opacity: 1.0;
+
+        &_opacity75 {
+            opacity: 0.75;
+        }
+    
+        &_opacity50 {
+            opacity: 0.5;
+        }
+    
+        &_opacity25 {
+            opacity: 0.25;
+        }
+    
+        &_opacity05 {
+            opacity: 0.05;
+        }
+    }
+
+}
