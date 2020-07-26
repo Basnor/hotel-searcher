@@ -1,9 +1,10 @@
 mixin palette(options)
     -
-        var colorClassName = options.name
-        var clarity = options.clarity ? options.clarity : ""
+        var colorClassName = "color-palette__box color-palette_" + options.color
 
     .color-palette
-        div(class = "color-palette_dark-shade05")= options.name
+        div(class = colorClassName)
+        span(class = "color-palette__name")= options.name
+        span(class = "color-palette__value")= options.hash
 
 

@@ -11,7 +11,7 @@
     'dark-shade'   $color-dark-shade,
     'dark-shade75' $color-dark-shade75,
     'dark-shade50' $color-dark-shade50,
-    'dark-shade20' $color-dark-shade25,
+    'dark-shade25' $color-dark-shade25,
     'dark-shade05' $color-dark-shade05,
     'purple'       $color-purple,
     'green'        $color-green
@@ -19,9 +19,15 @@
 
 .color-palette {
     margin-bottom: 20px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 20px;
+    display: grid; 
+    align-items: center;
+    grid-template-areas:
+      "box name"
+      "box value";
+
 }
 
 .color-palette__box {
@@ -29,6 +35,7 @@
     height: 70px;
     border-radius: 6px;
     margin-right: 10px;
+    grid-area: box;
 }
 
 .color-palette__name {
@@ -37,6 +44,7 @@
     font-weight: bold;
     font-size: 19px;
     color: $color-dark-shade;
+    grid-area: name;
 }
 
 .color-palette__value {
@@ -45,4 +53,5 @@
     font-weight: 100;
     font-size: 19px;
     color: $color-dark-shade;
+    grid-area: value;
 }
