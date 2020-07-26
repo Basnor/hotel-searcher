@@ -18,40 +18,36 @@
 );
 
 .color-palette {
-    margin-bottom: 20px;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 20px;
     display: grid; 
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 30px;
     align-items: center;
-    grid-template-areas:
-      "box name"
-      "box value";
+    margin-bottom: 20px;
+
+    &__box {
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+        grid-area: 1/1/3/2;
+    }
+    
+    &__name {
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        color: $color-dark-shade;
+    }
+    
+    &__value {
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: 100;
+        font-size: 19px;
+        color: $color-dark-shade;
+    }
+
+
 
 }
 
-.color-palette__box {
-    width: 70px;
-    height: 70px;
-    border-radius: 6px;
-    margin-right: 10px;
-    grid-area: box;
-}
-
-.color-palette__name {
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 19px;
-    color: $color-dark-shade;
-    grid-area: name;
-}
-
-.color-palette__value {
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: 100;
-    font-size: 19px;
-    color: $color-dark-shade;
-    grid-area: value;
-}
