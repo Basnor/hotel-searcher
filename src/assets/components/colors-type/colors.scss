@@ -1,7 +1,6 @@
-//@import "./test/test.scss";
+$tests-page: true;
 
 /***** Variables *****/
-
 $color-dark-shade:   #1F2041;
 $color-dark-shade75: rgba(#1F2041, 0.75);
 $color-dark-shade50: rgba(#1F2041, 0.50);
@@ -9,5 +8,8 @@ $color-dark-shade25: rgba(#1F2041, 0.25);
 $color-dark-shade05: rgba(#1F2041, 0.05);
 $color-purple:       #BC9CFF;
 $color-green:        #6FCF97;
+
+
+
 
 @import "./test/test.scss";

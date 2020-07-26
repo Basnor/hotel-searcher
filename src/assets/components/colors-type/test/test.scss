@@ -1,10 +1,4 @@
-//@import '../colors.scss';
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+/***** Color Palette  *****/
 
 @mixin config-icon-colors($prefix, $colors...) {
     @each $i in $colors {
@@ -22,3 +16,33 @@
     'purple'       $color-purple,
     'green'        $color-green
 );
+
+.color-palette {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.color-palette__box {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.color-palette__name {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    color: $color-dark-shade;
+}
+
+.color-palette__value {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 19px;
+    color: $color-dark-shade;
+}
