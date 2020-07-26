@@ -1,9 +1,24 @@
-@import '../colors.scss';
-
-@include rect(#1F2041, "100%");
+//@import '../colors.scss';
 
 .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
+
+@mixin config-icon-colors($prefix, $colors...) {
+    @each $i in $colors {
+        .#{$prefix}#{nth($i, 1)} {
+            background: nth($i, 2);
+        }
+    }
+}
+@include config-icon-colors('color-palette_',
+    'dark-shade'   $color-dark-shade,
+    'dark-shade75' $color-dark-shade75,
+    'dark-shade50' $color-dark-shade50,
+    'dark-shade20' $color-dark-shade25,
+    'dark-shade05' $color-dark-shade05,
+    'purple'       $color-purple,
+    'green'        $color-green
+);
