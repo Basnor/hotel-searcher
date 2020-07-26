@@ -5,12 +5,21 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Colors-type test
     body
-        include _color-palette
-        +color-palette({name: "Dark Shade 100%", hash: "#1F2041", color: "dark-shade"})
-        +color-palette({name: "Dark Shade 75%",  hash: "#1F2041", color: "dark-shade75"})
-        +color-palette({name: "Dark Shade 50%",  hash: "#1F2041", color: "dark-shade50"})
-        +color-palette({name: "Dark Shade 25%",  hash: "#1F2041", color: "dark-shade25"})
-        +color-palette({name: "Dark Shade 5%",   hash: "#1F2041", color: "dark-shade05"})
-        +color-palette({name: "Purple",          hash: "#BC9CFF", color: "purple"})
-        +color-palette({name: "Green",           hash: "#6FCF97", color: "green"})
+        .palette
+            div
+                include _color-palette
+                +color-palette({name: "Dark Shade 100%", hash: "#1F2041", color: "dark-shade"})
+                +color-palette({name: "Dark Shade 75%",  hash: "#1F2041", color: "dark-shade75"})
+                +color-palette({name: "Dark Shade 50%",  hash: "#1F2041", color: "dark-shade50"})
+                +color-palette({name: "Dark Shade 25%",  hash: "#1F2041", color: "dark-shade25"})
+                +color-palette({name: "Dark Shade 5%",   hash: "#1F2041", color: "dark-shade05"})
+                +color-palette({name: "Purple",          hash: "#BC9CFF", color: "purple"})
+                +color-palette({name: "Green",           hash: "#6FCF97", color: "green"})
 
+            div
+                include _type-palette
+                +type-palette({text: "This one is the sub-section or widget title", type: "H1"})
+                +type-palette({text: "Next one is the item title inside widgets",   type: "H2"})
+                +type-palette({text: "This is a label or CTA text",                 type: "H3"})
+                +type-palette({text: "This is the body text which is used " + 
+                        "for most of the design, like paragraphs, lists, etc.",  type: "Body"})

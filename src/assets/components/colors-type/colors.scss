@@ -1,4 +1,4 @@
-/***** Variables *****/
+/***** Color Variables *****/
 $color-dark-shade:   #1F2041;
 $color-dark-shade75: rgba(#1F2041, 0.75);
 $color-dark-shade50: rgba(#1F2041, 0.50);
@@ -7,5 +7,42 @@ $color-dark-shade05: rgba(#1F2041, 0.05);
 $color-purple:       #BC9CFF;
 $color-green:        #6FCF97;
 
+/***** Type Styles *****/
+.H1, 
+.H2 {
+    font-family: Quicksand;
+    font-weight: bold;
+    color: $color-dark-shade;
+}
+
+.H1 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.H2 {
+    font-size: 19px;
+    line-height: 24px;
+}
+
+.H3, 
+.Body {
+    font-family: Montserrat;
+}
+
+.H3 {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color-dark-shade;
+}
+
+.Body {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    color: $color-dark-shade75;
+}
 
 @import "./test/test.scss";

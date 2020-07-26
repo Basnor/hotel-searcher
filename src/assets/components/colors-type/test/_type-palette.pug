@@ -1,0 +1,8 @@
+mixin type-palette(options)
+    -
+        var typeClassName = options.type + " type-palette__type"
+        var textClassName = options.type
+
+    .type-palette
+        div(class = typeClassName)= options.type
+        div(class = textClassName)= options.text
