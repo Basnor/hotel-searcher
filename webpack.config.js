@@ -71,8 +71,15 @@ const config = {
             {
                 test: /\.s[ac]ss$/,
                 use: cssLoaders('sass-loader')
-            }
-
+            },
+            {
+                test: /\.(png|jpg|svg|gif)$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.(ttf|woff|woff2|eot)$/,
+                use: ['file-loader']
+            },
 
         ]
     },
