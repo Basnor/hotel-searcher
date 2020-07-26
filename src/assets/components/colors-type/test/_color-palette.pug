@@ -1,0 +1,8 @@
+mixin color-palette(options)
+    -
+        var colorClassName = "color-palette__box color-palette_" + options.color
+
+    .color-palette
+        div(class = colorClassName)
+        span(class = "color-palette__name")= options.name
+        span(class = "color-palette__value")= options.hash
