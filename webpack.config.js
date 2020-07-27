@@ -42,7 +42,7 @@ const plugins = () => {
 
 function tests() {
     return [].map.call(arguments, page =>  new HtmlWebpackPlugin({
-      template: "./src/assets/components/" + page + "/test/index.pug",
+      template: "./src/assets/components/" + page + "/__test__/index.pug",
       filename: "tests/" + page + ".html"
     }))
   }
