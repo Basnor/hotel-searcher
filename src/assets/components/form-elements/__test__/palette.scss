@@ -1,0 +1,8 @@
+/***** Elements Palette  *****/
+.elements-palette {
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 21px 30px;
+    margin: 50px;
+}

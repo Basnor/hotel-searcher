@@ -5,9 +5,13 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Form Elements test
     body
-        div 
-            .textfield__title Text Field
-            input.textfield__input.textfield__input_default(type="text", placeholder="Email")
-        div 
-            .textfield__title Text Field
-            input.textfield__input.textfield__input_focused(type="text", value="This is pretty awesome")
+        .elements-palette
+            div 
+                .textfield__title Text Field
+                input.textfield__input.textfield__input_default(type="text", placeholder="Email")
+            div 
+                .textfield__title Text Field
+                input.textfield__input.textfield__input_focused(type="text", value="This is pretty awesome")
+            div 
+                .textfield__title Masked Text Field
+                input.textfield__input.textfield__input_default(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
