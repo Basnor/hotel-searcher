@@ -34,7 +34,7 @@ const plugins = () => {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
-        ...tests('colors-type')
+        ...tests('colors-type', 'form-elements')
     ]
 
     return base

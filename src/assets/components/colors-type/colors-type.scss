@@ -8,6 +8,16 @@ $color-purple:       #BC9CFF;
 $color-green:        #6FCF97;
 
 /***** Type Styles *****/
+
+@mixin h3_type {
+    font-family: Montserrat;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color-dark-shade;
+}
+
 .H1, 
 .H2 {
     font-family: Quicksand;
@@ -31,11 +41,7 @@ $color-green:        #6FCF97;
 }
 
 .H3 {
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: $color-dark-shade;
+    @include h3_type;
 }
 
 .Body {
@@ -44,5 +50,3 @@ $color-green:        #6FCF97;
     font-weight: normal;
     color: $color-dark-shade75;
 }
-
-@import "./__test__/palette.scss";

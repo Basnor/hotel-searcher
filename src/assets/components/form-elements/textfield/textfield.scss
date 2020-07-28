@@ -1,0 +1,34 @@
+.textfield {
+
+    &__title {
+        @include h3_type;
+    }
+
+    &__status {
+        @include h3_type;
+
+        font-weight: normal;
+        color: $color-dark-shade50;
+    }
+
+    &__input {
+        font-family: Montserrat;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: normal;
+
+        width: 320px;
+        height: 44px;
+        padding: 14px;
+    
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        &-default {
+            border: 1px solid $color-dark-shade25;
+            color: $color-dark-shade25;
+        }
+    }
+
+
+}

@@ -1,5 +1,4 @@
 /***** Colors & Type Palette  *****/
-
 .palette {
     display: flex; 
     justify-content: space-around;
@@ -7,7 +6,6 @@
 }
 
 /***** Color Palette  *****/
-
 .color-palette {
     display: grid; 
     grid-template-columns: auto 1fr;
@@ -54,8 +52,7 @@
     )
 }
 
-/***** Color Palette  *****/
-
+/***** Type Palette  *****/
 .type-palette {
     display: grid; 
     grid-template-columns: 30px 340px;

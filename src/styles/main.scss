@@ -1,5 +1,11 @@
 @import "./fonts.scss";
+
+// Components
 @import "../assets/components/colors-type/colors-type.scss";
+@import "../assets/components/form-elements/textfield/textfield.scss";
+
+// Styles for tests pages
+@import "../assets/components/colors-type/__test__/palette.scss";
 
 .red {
   color: red;
