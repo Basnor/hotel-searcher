@@ -6,4 +6,8 @@ html(lang="en")
         title Form Elements test
     body
         div 
-            input.textfield__input.textfield__input-default()
+            .textfield__title Text Field
+            input.textfield__input.textfield__input_default(type="text", placeholder="Email")
+        div 
+            .textfield__title Text Field
+            input.textfield__input.textfield__input_focused(type="text", value="This is pretty awesome")
