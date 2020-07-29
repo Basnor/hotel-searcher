@@ -8,11 +8,17 @@ html(lang="en")
         .elements-palette
             div 
                 .textfield__title Text Field
-                input.textfield__input.textfield__input_default(type="text", placeholder="Email")
+                input.textfield__input.textfield_size_l.textfield__input_default(type="text", placeholder="Email")
             div 
                 .textfield__title Text Field
-                input.textfield__input.textfield__input_focused(type="text", value="This is pretty awesome")
+                input.textfield__input.textfield_size_l.textfield__input_focused(type="text", value="This is pretty awesome")
+            div 
+                .textfield__title Dropdown
+                div.textfield_size_l.textfield__dropdown
+                    input.textfield__dropdown__input(type="text", placeholder="Сколько гостей")
+                    div.textfield__dropdown__arrow
             div 
                 .textfield__title Masked Text Field
-                input.textfield__input.textfield__input_default(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
+                input.textfield__input.textfield_size_l.textfield__input_default(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
 
+            div.textfield__dropdown__arrow()
