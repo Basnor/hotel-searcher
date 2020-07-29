@@ -24,6 +24,19 @@ const cssLoaders = extra => {
     return loaders
 }
 
+const fileLoaders = () => {
+    const loaders = [
+        {
+            loader: 'file-loader',
+            options: {
+                name: '[path][name].[ext]'
+            }
+        }
+    ]
+
+    return loaders
+}
+
 const plugins = () => {
     const base = [
         new HtmlWebpackPlugin({
@@ -73,13 +86,9 @@ const config = {
                 use: cssLoaders('sass-loader')
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader']
-            },
-            {
-                test: /\.(ttf|woff|svg)$/,
-                use: ['file-loader']
-            },
+                test: /\.(png|jpg|svg|gif|ttf|woff)$/,
+                use: fileLoaders()
+            }
 
         ]
     },
