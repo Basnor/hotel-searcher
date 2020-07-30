@@ -15,20 +15,60 @@
   width: 320px;
 
   .iqdropdown-selection {
+    display: flex;
+    justify-content: space-between;
     @include font-styles($iqdropdown-fontsize-l);
-    flex: 1;
-    position: relative;
+    order:1;
+
 
     &::after {
-      //@include background-image(0, 5px, 12px);
+      background-image: none;
+      top: 0px;
+      align-self: center;
+      order: 2;
+
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
       position: absolute;
-      right: 0;
-      top: 40%;
+      top: -1px;
+      right: 1px;
+
+      transform: rotate(-135deg);
+
+      //margin-right: 1px;
     }
+
+    &::before {
+      background-image: none;
+      order: 3;
+      position: relative;
+      top: -1px;
+      right: 2px;
+      align-self: center;
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: $color-dark-shade50;
+      transform: rotate(-135deg);
+      
+    }
+
   }
 
   &.menu-open {
     border-color: $iqdropdown-border-active;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    .iqdropdown-selection::before {
+      background-image: none;
+      background-color: $color-dark-shade75;
+    }
+    .iqdropdown-selection::after {
+      background-image: none;
+      background-color: #fff;
+    }
 
   }
 }
