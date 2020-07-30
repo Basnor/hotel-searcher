@@ -1,0 +1,34 @@
+@import '../app';
+@import 'iqdropdown-menu';
+@import 'item-description';
+@import 'controls';
+
+.iqdropdown {
+  align-items: center;
+  border: $iqdropdown-border;
+  border-radius: 4px;
+  display: flex;
+  height: $iqdropdown-height;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: relative;
+  width: 320px;
+
+  .iqdropdown-selection {
+    @include font-styles($iqdropdown-fontsize-l);
+    flex: 1;
+    position: relative;
+
+    &::after {
+      //@include background-image(0, 5px, 12px);
+      position: absolute;
+      right: 0;
+      top: 40%;
+    }
+  }
+
+  &.menu-open {
+    border-color: $iqdropdown-border-active;
+
+  }
+}

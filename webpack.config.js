@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -39,6 +40,10 @@ const fileLoaders = () => {
 
 const plugins = () => {
     const base = [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.pug',
@@ -68,6 +73,12 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
+    },
+    resolve: {
+        modules: [path.resolve(__dirname, '/src'), 'node_modules'],
+        alias: {
+          '~': path.resolve(__dirname, './')
+        }
     },
     plugins: plugins(),
     devtool: 'eval-cheap-source-map',

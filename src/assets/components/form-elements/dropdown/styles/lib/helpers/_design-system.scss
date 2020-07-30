@@ -1,0 +1,16 @@
+// ColorSystem and fontfamily for the Reservamos theme
+// Each variable inside uses the !default keyword
+
+$primary-font: Montserrat;
+
+$iqdropdown-fontsize-m: 12px;
+$iqdropdown-fontsize-l: 14px;
+
+// Color System
+// Primary colors ----------
+$primary-700: $color-dark-shade50;
+
+// GrayScale ----------
+$gray-900: $color-dark-shade;
+$gray-200: $color-dark-shade25;
+$gray-100: $color-dark-shade05;

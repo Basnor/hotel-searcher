@@ -1,5 +1,4 @@
 
-
 @mixin input_type {
     font-family: Montserrat;
     font-size: 14px;
@@ -8,7 +7,6 @@
 }
 
 .textfield {
-
     &_size_l {
         width: 320px;
         height: 44px;
@@ -40,49 +38,4 @@
             color: $color-dark-shade25;
         }
     }
-
-    &__dropdown {
-        display: flex;
-        justify-content: space-between;
-        
-        &__input {
-            @include input_type;
-            box-sizing: border-box;
-            outline: none;
-            border: none;
-
-            &::placeholder {
-                color: $color-dark-shade75;
-            }
-
-        }
-
-        &__arrow {
-            width: 8px;
-            height: 8px;
-            background: $color-dark-shade50;
-            position: relative;
-            transform: rotate(-135deg);
-
-            margin-right: 1px;
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                background: #fff;
-                top: 2px;
-                left: 2px;
-            }
-        } 
-
-        &:focus, &:hover {
-            border-color: $color-dark-shade50;
-            outline: none;
-        }
-
-    }
-
-
 }

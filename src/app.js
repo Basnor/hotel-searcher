@@ -1,8 +1,13 @@
-import "./styles/main.scss"
 
-import * as $ from "jquery"
-import "jquery-mask-plugin/dist/jquery.mask"
 
+//import * as $ from "jquery";
+import "jquery-mask-plugin";
+
+
+import "./assets/components/form-elements/textfield/dropdown";
+
+// после require т.к. там подключаются зависимые стили
+import "./styles/main.scss";
 
 
 const post = "Webpack jquery work!"

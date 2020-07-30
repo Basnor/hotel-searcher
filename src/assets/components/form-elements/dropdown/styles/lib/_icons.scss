@@ -1,0 +1,36 @@
+.iqdropdown .icon-decrement {
+  display: inline-block;
+  height: $iqdropdown-icon-size;
+  margin: 0px;
+  min-width: 0px;
+  position: relative;
+  width: $iqdropdown-icon-size;
+
+  &::after {
+    background: $iqdropdown-icon-color;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 3px;
+    transition: none;
+    width: $iqdropdown-icon-size;
+  }
+
+  &.icon-increment::before {
+    background: $iqdropdown-icon-color;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 3px;
+    display: flex;
+    justify-content: center;
+    transform: rotate(90deg);
+    transition: none;
+    width: $iqdropdown-icon-size;
+  }
+}
+

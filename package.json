@@ -35,6 +35,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "item-quantity-dropdown": "^2.1.0",
     "jquery": "^3.5.1",
     "jquery-mask-plugin": "^1.14.16"
   }
