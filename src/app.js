@@ -1,10 +1,8 @@
 
-
-//import * as $ from "jquery";
 import "jquery-mask-plugin";
 
-
-import "./assets/components/form-elements/textfield/dropdown";
+// dropdown plaguin
+import "./assets/components/form-elements/dropdown/dropdown";
 
 // после require т.к. там подключаются зависимые стили
 import "./styles/main.scss";
