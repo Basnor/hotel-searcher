@@ -1,41 +1,112 @@
+/***** Box Primary Variables *****/
+$textfield-width-l: 320px;
+$textfield-width-m: 267px;
+$textfield-height:  44px;
+$textfield-border:  1px solid $color-dark-shade25;
+$textfield-border-radius: 4px;
 
-@mixin input_type {
-    font-family: Montserrat;
-    font-size: 14px;
-    font-weight: normal;
-    color: $color-dark-shade75;
+$textfield-focused-border-color: $color-dark-shade50;
+$textfield-focused-font-color: $color-dark-shade75;
+$textfield-default-color: $color-dark-shade25;
+
+
+@mixin textfield-box-styles ($width: $textfield-width-l, 
+                   $height: $textfield-height, 
+                   $box-sizing: border-box,
+                   $border-radius: $textfield-border-radius, 
+                   $border: $textfield-border) {
+    width: $width;
+    height: $height;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: $box-sizing;
+    border-radius: $border-radius;
+    border: $border;
 }
 
 .textfield {
-    &_size_l {
-        width: 320px;
-        height: 44px;
-        padding: 15px;
-
-        box-sizing: border-box;
-        border-radius: 4px;
-        border: 1px solid $color-dark-shade25;
-    }
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 5px;
 
     &__title {
-        @include h3_type;
-        margin-bottom: 5px;
+        @include font-styles(12px, $color-dark-shade, bold, 15px, Montserrat, uppercase);
     }
 
-    &__input {
-        @include input_type;
+    &__box {
+        @include textfield-box-styles();
+        display: flex;
+        justify-content: space-between;
+
+        &_size_m {
+            width: $textfield-width-m;
+        }
+
+        &__input {
+            @include font-styles(14px, $color-dark-shade75, normal);
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+
+            align-self: center;
+            flex-grow: 1;
+        
+            &::placeholder {
+                color: $textfield-default-color;
+            }
+        }
+
+        &__btn {
+            width: 44px;
+            height: 44px;
+
+            display: block;
+            border-radius: 4px;
+
+            position: relative;
+        }
 
         &_default {
-            border-color: $color-dark-shade25;
+            border-color: $textfield-default-color;
         }
 
         &_focused, &:focus, &:hover {
-            border-color: $color-dark-shade50;
+            border-color: $textfield-focused-border-color;
             outline: none;
         }
+    }
 
-        &::placeholder {
-            color: $color-dark-shade25;
-        }
+}
+
+  
+
+.arrow {
+    position: relative;
+    width: 14px;
+    height: 2px;
+
+    left: 35%;
+    top: 45%;
+    background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+
+    &::after, &::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        right: -3px;
+        background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+
+    &::after {
+        top: -3px;
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        top: 3px;
+        transform: rotate(-45deg);
     }
 }
+

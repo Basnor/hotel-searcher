@@ -9,8 +9,9 @@
 .color-palette {
     display: grid; 
     grid-template-columns: auto 1fr;
-    grid-column-gap: 30px;
+    grid-column-gap: 40px;
     align-items: center;
+    
     margin-bottom: 20px;
 
     &__box {
@@ -21,17 +22,11 @@
     }
     
     &__name {
-        font-family: Quicksand;
-        font-weight: bold;
-        font-size: 19px;
-        color: $color-dark-shade;
+        @include font-styles($size: 19px, $weight: bold, $family: Quicksand);
     }
     
     &__value {
-        font-family: Quicksand;
-        font-weight: normal;
-        font-size: 19px;
-        color: $color-dark-shade;
+        @include font-styles($size: 19px, $family: Quicksand);
     }
 
     @mixin colors($colors...) {
@@ -63,7 +58,7 @@
         font-family: Montserrat;
         font-weight: normal;
         color: $color-dark-shade25;
-        justify-self: center;
+        justify-self: flex-end;
     }
 
 }

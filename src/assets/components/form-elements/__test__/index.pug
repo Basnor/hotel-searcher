@@ -6,34 +6,44 @@ html(lang="en")
         title Form Elements test
     body
         .elements-palette
-            div 
+            div.textfield
                 .textfield__title Text Field
-                input.textfield__input.textfield_size_l.textfield__input_default(type="text", placeholder="Email")
-            div 
+                .textfield__box
+                    input.textfield__box__input.textfield__box__input_default(type="text", placeholder="Email")
+            div.textfield
                 .textfield__title Text Field
-                input.textfield__input.textfield_size_l.textfield__input_focused(type="text", value="This is pretty awesome")
-            div 
-                .textfield__title Dropdown
-                div.iqdropdown.custom
-                    p.iqdropdown-selection
-                    div.iqdropdown-menu
-                        div.iqdropdown-menu-option(data-id='Adult')
-                            div
-                                p.iqdropdown-item Взрослые
-                        div.iqdropdown-menu-option(data-id='Children')
-                            div
-                                p.iqdropdown-item Дети
-                        div.iqdropdown-menu-option(data-id='Babies')
-                            div
-                                p.iqdropdown-item Младенцы
-                        button.iqdropdown-menu-clean Очистить
-                        button.iqdropdown-menu-close Применить
-            div 
+                .textfield__box
+                    input.textfield__box__input.textfield__box__input_focused(type="text", value="This is pretty awesome")
+            .textfield__title Dropdown
+            div.iqdropdown.custom
+                p.iqdropdown-selection
+                div.iqdropdown-menu
+                    div.iqdropdown-menu-option(data-id='Adult')
+                        div
+                            p.iqdropdown-item Взрослые
+                    div.iqdropdown-menu-option(data-id='Children')
+                        div
+                            p.iqdropdown-item Дети
+                    div.iqdropdown-menu-option(data-id='Babies')
+                        div
+                            p.iqdropdown-item Младенцы
+                    button.iqdropdown-menu-clean Очистить
+                    button.iqdropdown-menu-close Применить
+            div.textfield
                 .textfield__title Masked Text Field
-                input.textfield__input.textfield_size_l.textfield__input_default(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
+                .textfield__box
+                    input.textfield__box__input.textfield__box__input_default(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
+            div.textfield
+                .textfield__title Subscription Text Field
+                .textfield__box.textfield__box_size_m
+                    input.textfield__box__input.textfield__box__input_default(type="text", placeholder="Email")
+                    a.textfield__box__btn(href="#")
+                        div.arrow
+
         br
         br
         br
         br
         br
         br
+        

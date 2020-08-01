@@ -7,46 +7,38 @@ $color-dark-shade05: rgba(#1F2041, 0.05);
 $color-purple:       #BC9CFF;
 $color-green:        #6FCF97;
 
+/***** Type Variables *****/
+$type-size-primary:   19px;
+$type-family-primary: Montserrat;
+
 /***** Type Styles *****/
-
-@mixin h3_type {
-    font-family: Montserrat;
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: $color-dark-shade;
-}
-
-.H1, 
-.H2 {
-    font-family: Quicksand;
-    font-weight: bold;
-    color: $color-dark-shade;
+@mixin font-styles ($size: $type-size-primary, 
+                    $color: $color-dark-shade, 
+                    $weight: normal, 
+                    $height: normal,
+                    $family: $type-family-primary, 
+                    $transform: none) {
+    color: $color;
+    font-family: $family;
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+    text-transform: $transform;
+    -webkit-font-smoothing: antialiased;
 }
 
 .H1 {
-    font-size: 24px;
-    line-height: 30px;
+    @include font-styles(24px, $color-dark-shade, bold, 30px, Quicksand);
 }
 
 .H2 {
-    font-size: 19px;
-    line-height: 24px;
-}
-
-.H3, 
-.Body {
-    font-family: Montserrat;
+    @include font-styles(19px, $color-dark-shade, bold, 24px, Quicksand);
 }
 
 .H3 {
-    @include h3_type;
+    @include font-styles(12px, $color-dark-shade, bold, 24px, Montserrat, uppercase);
 }
-
+ 
 .Body {
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: normal;
-    color: $color-dark-shade75;
+    @include font-styles(14px, $color-dark-shade75, normal, 24px);
 }
