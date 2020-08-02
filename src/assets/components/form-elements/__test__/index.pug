@@ -39,6 +39,12 @@ html(lang="en")
                     input.textfield__box__input.textfield__box__input_default(type="text", placeholder="Email")
                     a.textfield__box__btn(href="#")
                         div.arrow
+            div.checkbox
+                .checkbox__title Checkbox Buttons
+                include ../checkbox/_item
+                +checkbox-item({id: "smoke",  label: "Можно курить"})
+                +checkbox-item({id: "pats",   label: "Можно с питомцаими", checked: true})
+                +checkbox-item({id: "visits", label: "Можно пригласить гостей (до 10 человек)", checked: true})
 
         br
         br

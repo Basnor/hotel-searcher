@@ -1,0 +1,6 @@
+mixin checkbox-item(options)
+
+    .checkbox-item
+        label(class="checkbox__item")= options.label
+            input(type="checkbox", id=options.id, checked=options.checked)
+            span(class="checkbox__mark")

@@ -51,8 +51,8 @@
 .type-palette {
     display: grid; 
     grid-template-columns: 30px 340px;
-    grid-column-gap: 30px;
-    margin-bottom: 47px;
+    grid-column-gap: 32px;
+    margin-bottom: 50px;
 
     &__type {
         font-family: Montserrat;

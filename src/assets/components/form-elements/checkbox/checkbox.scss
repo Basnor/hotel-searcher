@@ -1,0 +1,67 @@
+@import "../../colors-type/colors-type.scss";
+
+.checkbox {
+
+    &__title {
+        @include font-styles(12px, $color-dark-shade, bold, 15px, Montserrat, uppercase);
+        margin-bottom: 17px;
+    }
+
+    &__item {
+        @include font-styles(14px, $color-dark-shade50, normal, 18px, Montserrat);
+
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &__mark {
+        @include box-styles(20px, 20px);
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+
+            /* Style the checkmark/indicator */
+            left: 7px;
+            top: 4px;
+            width: 6px;
+            height: 8px;
+            border: solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    input {
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        /* When the checkbox is checked, add a blue background */
+        &:checked ~ .checkbox__mark {
+            border-color: $color-purple;
+        }
+
+        /* Show the checkmark when checked */
+        &:checked ~ .checkbox__mark::after {
+            display: block;
+        }
+    }
+}

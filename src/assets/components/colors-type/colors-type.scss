@@ -27,18 +27,18 @@ $type-family-primary: Montserrat;
     -webkit-font-smoothing: antialiased;
 }
 
-.H1 {
+.h1 {
     @include font-styles(24px, $color-dark-shade, bold, 30px, Quicksand);
 }
 
-.H2 {
+.h2 {
     @include font-styles(19px, $color-dark-shade, bold, 24px, Quicksand);
 }
 
-.H3 {
-    @include font-styles(12px, $color-dark-shade, bold, 24px, Montserrat, uppercase);
+.h3 {
+    @include font-styles(12px, $color-dark-shade, bold, 15px, Montserrat, uppercase);
 }
  
-.Body {
+.body {
     @include font-styles(14px, $color-dark-shade75, normal, 24px);
 }

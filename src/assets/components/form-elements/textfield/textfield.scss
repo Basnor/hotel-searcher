@@ -10,15 +10,13 @@ $textfield-focused-font-color: $color-dark-shade75;
 $textfield-default-color: $color-dark-shade25;
 
 
-@mixin textfield-box-styles ($width: $textfield-width-l, 
+@mixin box-styles ($width: $textfield-width-l, 
                    $height: $textfield-height, 
                    $box-sizing: border-box,
                    $border-radius: $textfield-border-radius, 
                    $border: $textfield-border) {
     width: $width;
     height: $height;
-    padding-left: 15px;
-    padding-right: 15px;
     box-sizing: $box-sizing;
     border-radius: $border-radius;
     border: $border;
@@ -35,13 +33,12 @@ $textfield-default-color: $color-dark-shade25;
     }
 
     &__box {
-        @include textfield-box-styles();
+        @include box-styles();
+        padding-left: 15px;
+        padding-right: 15px;
+
         display: flex;
         justify-content: space-between;
-
-        &_size_m {
-            width: $textfield-width-m;
-        }
 
         &__input {
             @include font-styles(14px, $color-dark-shade75, normal);
@@ -67,6 +64,10 @@ $textfield-default-color: $color-dark-shade25;
             position: relative;
         }
 
+        &_size_m {
+            width: $textfield-width-m;
+        }
+
         &_default {
             border-color: $textfield-default-color;
         }
@@ -76,11 +77,9 @@ $textfield-default-color: $color-dark-shade25;
             outline: none;
         }
     }
-
 }
 
   
-
 .arrow {
     position: relative;
     width: 14px;
@@ -109,4 +108,3 @@ $textfield-default-color: $color-dark-shade25;
         transform: rotate(-45deg);
     }
 }
-

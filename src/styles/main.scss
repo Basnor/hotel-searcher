@@ -3,7 +3,8 @@
 // Components
 @import "../assets/components/colors-type/colors-type.scss";
 @import "../assets/components/form-elements/textfield/textfield.scss";
-@import "../assets/components/form-elements/dropdown/styles/main.scss";
+@import "../assets/components/form-elements/dropdown/styles/main.scss"; //???
+@import "../assets/components/form-elements/checkbox/checkbox.scss";
 
 // Styles for tests pages
 @import "../assets/components/colors-type/__test__/palette.scss";
@@ -21,3 +22,4 @@
 body {
   background-color: #FFFFFF;
 }
+
