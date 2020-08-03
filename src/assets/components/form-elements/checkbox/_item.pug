@@ -1,6 +1,6 @@
 mixin checkbox-item(options)
 
-    .checkbox-item
-        label(class="checkbox__item")= options.label
-            input(type="checkbox", id=options.id, checked=options.checked)
-            span(class="checkbox__mark")
+    .checkbox__item
+        input(type="checkbox", id=options.id, checked=options.checked)
+        div(class="checkbox__mark")
+        label(class="checkbox__label")= options.label
