@@ -44,7 +44,16 @@ html(lang="en")
                 include ../checkbox/_item
                 +checkbox-item({id: "smoke",  label: "Можно курить"})
                 +checkbox-item({id: "pats",   label: "Можно с питомцами", checked: true})
-                +checkbox-item({id: "visits", label: "Можно пригласить гостей (до 10 человек)", checked: true})
+                +checkbox-item({id: "visits", label: "Можно пригласить гостей (до\u00A010\u00A0человек)", checked: true})
+
+            div.checkbox
+                .h3 Rich Checkbox Buttons
+                include ../checkbox/_item
+                - var disc = "Ширина коридоров в номере \u00A0\u00A0\u00A0 не\u00A0менее\u00A091\u00A0см."
+                +checkbox-item({id: "hall",  label: "Широкий коридор", description: disc})
+                - disc = "На 1 этаже вас встретит специалист и проводит до номера"
+                +checkbox-item({id: "halper",   label: "Помошник для инвалидов", description: disc})
+                
 
         br
         br

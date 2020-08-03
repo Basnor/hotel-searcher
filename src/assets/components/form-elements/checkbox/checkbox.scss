@@ -2,7 +2,7 @@
 
 .checkbox {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(auto, 320px);
     grid-gap: 10px;
     
     & .h3 {
@@ -12,18 +12,26 @@
 
     &__item {
         display: flex;
-        align-items: center;
     }
 
     &__label {
         @include font-styles(14px, $color-dark-shade50, normal, 18px, Montserrat);
         padding-left: 10px;
         cursor: initial;
+
+        &_rich {
+            @include font-styles(14px, $color-dark-shade75, bold, 18px, Montserrat);
+        }
+    }
+
+    &__description {
+        @include font-styles(12px, $color-dark-shade50, normal, 14px, Montserrat);
+        margin-top: 6.5px;
     }
 
     &__mark {
         @include box-styles(20px, 20px);
-
+        justify-content: flex-start;
         flex-shrink: 0;
         order: 0;
 

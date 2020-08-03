@@ -1,6 +1,12 @@
 mixin checkbox-item(options)
 
+    -
+        var labelClassName = "checkbox__label"
+        labelClassName += options.description ? " checkbox__label_rich" : ""
+
     .checkbox__item
         input(type="checkbox", id=options.id, checked=options.checked)
         div(class="checkbox__mark")
-        label(class="checkbox__label")= options.label
+        label(class=labelClassName)= options.label
+            if options.description
+                .checkbox__description= options.description
