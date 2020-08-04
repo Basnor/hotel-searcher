@@ -6,4 +6,4 @@ mixin type-palette(options)
 
     .type-palette
         div(class = typeClassName)= options.type
-        p(class = textClassName)= options.text
+        div(class = textClassName) !{options.text}

@@ -10,10 +10,12 @@ html(lang="en")
                 .textfield__title Text Field
                 .textfield__box
                     input.textfield__box__input.textfield__box__input_default(type="text", placeholder="Email")
+            
             div.textfield
                 .textfield__title Text Field
                 .textfield__box
                     input.textfield__box__input.textfield__box__input_focused(type="text", value="This is pretty awesome")
+            
             .textfield__title Dropdown
             div.iqdropdown.custom
                 p.iqdropdown-selection
@@ -29,31 +31,39 @@ html(lang="en")
                             p.iqdropdown-item Младенцы
                     button.iqdropdown-menu-clean Очистить
                     button.iqdropdown-menu-close Применить
+            
             div.textfield
                 .textfield__title Masked Text Field
                 .textfield__box
                     input.textfield__box__input.textfield__box__input_default(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
+            
             div.textfield
                 .textfield__title Subscription Text Field
                 .textfield__box.textfield__box_size_m
                     input.textfield__box__input.textfield__box__input_default(type="text", placeholder="Email")
                     a.textfield__box__btn(href="#")
                         div.arrow
+            
             div.checkbox
                 .h3 Checkbox Buttons
                 include ../checkbox/_item
                 +checkbox-item({id: "smoke",  label: "Можно курить"})
                 +checkbox-item({id: "pats",   label: "Можно с питомцами", checked: true})
-                +checkbox-item({id: "visits", label: "Можно пригласить гостей (до\u00A010\u00A0человек)", checked: true})
+                +checkbox-item({id: "visits", label: "Можно пригласить гостей <br>(до 10 человек)", checked: true})
 
             div.checkbox
                 .h3 Rich Checkbox Buttons
                 include ../checkbox/_item
-                - var disc = "Ширина коридоров в номере \u00A0\u00A0\u00A0 не\u00A0менее\u00A091\u00A0см."
-                +checkbox-item({id: "hall",  label: "Широкий коридор", description: disc})
-                - disc = "На 1 этаже вас встретит специалист и проводит до номера"
-                +checkbox-item({id: "halper",   label: "Помошник для инвалидов", description: disc})
-                
+                - var disc = "Ширина коридоров в номере <br>не менее 91 см."
+                +checkbox-item({id: "hall",   label: "Широкий коридор",        description: disc})
+                - disc = "На 1 этаже вас встретит специалист и <br>проводит до номера"
+                +checkbox-item({id: "halper", label: "Помошник для инвалидов", description: disc})
+
+            div.checkbox
+                .h3 Radio Buttons
+                include ../checkbox/_item
+                +checkbox-item({id: "sex",   label: "Мужской", type: "radio", checked: true})
+                +checkbox-item({id: "sex",   label: "Женский", type: "radio"})
 
         br
         br

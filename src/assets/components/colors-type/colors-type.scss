@@ -14,7 +14,7 @@ $type-family-primary: Montserrat;
 /***** Type Styles *****/
 @mixin font-styles ($size: $type-size-primary, 
                     $color: $color-dark-shade, 
-                    $weight: normal, 
+                    $weight: 300, 
                     $height: normal,
                     $family: $type-family-primary, 
                     $transform: none) {
@@ -28,17 +28,17 @@ $type-family-primary: Montserrat;
 }
 
 .h1 {
-    @include font-styles(24px, $color-dark-shade, bold, 30px, Quicksand);
+    @include font-styles(24px, $color-dark-shade, 700, 30px, Quicksand);
 }
 
 .h2 {
-    @include font-styles(19px, $color-dark-shade, bold, 24px, Quicksand);
+    @include font-styles(19px, $color-dark-shade, 700, 24px, Quicksand);
 }
 
 .h3 {
-    @include font-styles(12px, $color-dark-shade, bold, 15px, Montserrat, uppercase);
+    @include font-styles(12px, $color-dark-shade, 700, 15px, Montserrat, uppercase);
 }
  
 .body {
-    @include font-styles(14px, $color-dark-shade75, normal, 24px);
+    @include font-styles(14px, $color-dark-shade75, 400, 24px);
 }

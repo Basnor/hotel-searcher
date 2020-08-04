@@ -4,9 +4,17 @@ mixin checkbox-item(options)
         var labelClassName = "checkbox__label"
         labelClassName += options.description ? " checkbox__label_rich" : ""
 
+        var inputType = options.type ? options.type : "checkbox"
+
+        var markClassName = "checkbox__mark"
+        if (options.type) {
+            markClassName = markClassName + "_" + options.type
+        }
+
+
     .checkbox__item
-        input(type="checkbox", id=options.id, checked=options.checked)
-        div(class="checkbox__mark")
-        label(class=labelClassName)= options.label
+        input(type=inputType, id=options.id, checked=options.checked, name=options.id)
+        div(class=markClassName)
+        label(class=labelClassName) !{options.label}
             if options.description
-                .checkbox__description= options.description
+                .checkbox__description !{options.description}

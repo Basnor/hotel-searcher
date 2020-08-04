@@ -8,7 +8,7 @@
 /***** Color Palette  *****/
 .color-palette {
     display: grid; 
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(160px, 1fr);
     grid-column-gap: 40px;
     align-items: center;
     
@@ -22,7 +22,7 @@
     }
     
     &__name {
-        @include font-styles($size: 19px, $weight: bold, $family: Quicksand);
+        @include font-styles($size: 19px, $weight: 700, $family: Quicksand);
     }
     
     &__value {
@@ -50,7 +50,7 @@
 /***** Type Palette  *****/
 .type-palette {
     display: grid; 
-    grid-template-columns: 30px 340px;
+    grid-template-columns: 30px minmax(340px, 1fr);
     grid-column-gap: 32px;
     margin-bottom: 50px;
 
