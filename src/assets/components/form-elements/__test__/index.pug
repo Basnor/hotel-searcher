@@ -56,14 +56,20 @@ html(lang="en")
                 include ../checkbox/_item
                 - var disc = "Ширина коридоров в номере <br>не менее 91 см."
                 +checkbox-item({id: "hall",   label: "Широкий коридор",        description: disc})
-                - disc = "На 1 этаже вас встретит специалист и <br>проводит до номера"
+                - disc = "На 1 этаже вас встретит специалист <br>и проводит до номера"
                 +checkbox-item({id: "halper", label: "Помошник для инвалидов", description: disc})
 
-            div.checkbox
+            div.checkbox.checkbox_doubled
                 .h3 Radio Buttons
                 include ../checkbox/_item
-                +checkbox-item({id: "sex",   label: "Мужской", type: "radio", checked: true})
-                +checkbox-item({id: "sex",   label: "Женский", type: "radio"})
+                +checkbox-item({id: "male",   name: "sex", label: "Мужчина", type: "radio", checked: true})
+                +checkbox-item({id: "female", name: "sex", label: "Женщина", type: "radio"})
+
+            div.checkbox
+                .h3 Toggle
+                include ../checkbox/_item
+                +checkbox-item({id: "item1", label: "Получать спецпредложения", type: "toggle", checked: true})
+                +checkbox-item({id: "item2", label: "Получать спецпредложения", type: "toggle"})
 
         br
         br

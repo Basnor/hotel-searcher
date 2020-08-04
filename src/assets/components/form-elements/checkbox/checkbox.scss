@@ -12,6 +12,9 @@
 
     &__item {
         display: flex;
+
+        cursor: pointer;
+
     }
 
     &__label {
@@ -35,8 +38,10 @@
         flex-shrink: 0;
         order: 0;
 
+        cursor: pointer;
+
         /* Checkbox Mark Icon */
-        .checkbox__item input:checked ~ & {
+        input:checked ~ & {
             border-color: $color-purple;
             &::before {
                 height: 8px;
@@ -62,13 +67,10 @@
 
         &_radio {
             @include box-styles(20px, 20px, border-box, 50%);
-
-            & input[type=radio] {
-                @include box-styles(20px, 20px, border-box, 50%);
-            }
+            cursor: pointer;
             
             /* Radio Checkbox Mark Icon */
-            input[type=radio]:checked ~ & {
+            input:checked ~ & {
                 border-color: $color-purple;
                 &::before {
                     height: 12px;
@@ -83,14 +85,50 @@
                 }
             }
         }
+
+        &_toggle {
+            @include box-styles(40px, 20px, border-box, 10px);
+            cursor: pointer;
+
+            margin-bottom: 3px;
+
+            /* Toggle Checkbox Mark Icon */
+            &::before {
+                height: 12px;
+                width: 12px;
+
+                content: '';
+                position: absolute;
+
+                border-radius: 50%;
+                border-color: $color-dark-shade25;
+                background: $color-dark-shade25;
+                transform: translate(3px, 3px);
+
+                input:checked ~ & {
+                    border-color: $color-purple;
+                    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+                    transform: translate(23px, 3px);
+                }
+            }
+        }
+    }
+
+    &_doubled {
+        grid-template-columns: auto 1fr;
+        grid-gap: 10px 20px;
+
+        & .h3 {
+            grid-column: 1 / 3;
+        }    
     }
 
     & input {
-        @include box-styles(20px, 20px);
+        height: 0;
+        width: 0;
         opacity: 0;
-        z-index: 9999;
-
+        z-index: -9999;
         position: absolute;
-        cursor: pointer;
     }
+
 }
