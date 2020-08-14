@@ -105,7 +105,7 @@ const config = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        port: 8000,
+        port: 8010,
         hot: isDevelopment
     }
 }

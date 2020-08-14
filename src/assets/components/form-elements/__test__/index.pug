@@ -46,30 +46,73 @@ html(lang="en")
             
             div.checkbox
                 .h3 Checkbox Buttons
-                include ../checkbox/_item
-                +checkbox-item({id: "smoke",  label: "Можно курить"})
-                +checkbox-item({id: "pats",   label: "Можно с питомцами", checked: true})
-                +checkbox-item({id: "visits", label: "Можно пригласить гостей <br>(до 10 человек)", checked: true})
+                include ../checkbox/_list
+                +checkbox-list({
+                    items: [
+                        {
+                            label: "Можно курить"
+                        },
+                        {
+                            label: "Можно с питомцами",
+                            checked: true
+                        },
+                        {
+                            label: "Можно пригласить гостей <br>(до 10 человек)",
+                            checked: true
+                        }
+                    ]
+                })
 
             div.checkbox
                 .h3 Rich Checkbox Buttons
-                include ../checkbox/_item
-                - var disc = "Ширина коридоров в номере <br>не менее 91 см."
-                +checkbox-item({id: "hall",   label: "Широкий коридор",        description: disc})
-                - disc = "На 1 этаже вас встретит специалист <br>и проводит до номера"
-                +checkbox-item({id: "halper", label: "Помошник для инвалидов", description: disc})
+                include ../checkbox/_list
+                +checkbox-list({
+                    type: "checkbox",
+                    items: [
+                        {
+                            label: "Широкий коридор",
+                            description: "Ширина коридоров в номере <br>не менее 91 см."
+                        },
+                        {
+                            label: "Помошник для инвалидов",
+                            description: "На 1 этаже вас встретит специалист <br>и проводит до номера"
+                        }
+                    ]
+                })
 
             div.checkbox.checkbox_doubled
                 .h3 Radio Buttons
-                include ../checkbox/_item
-                +checkbox-item({id: "male",   name: "sex", label: "Мужчина", type: "radio", checked: true})
-                +checkbox-item({id: "female", name: "sex", label: "Женщина", type: "radio"})
+                include ../checkbox/_list
+                +checkbox-list({
+                    type: "radio",
+                    items: [
+                        {
+                            name: "sex",
+                            label: "Мужчина",
+                            checked: true
+                        },
+                        {
+                            name: "sex",
+                            label: "Женщина"
+                        }
+                    ]
+                })
 
             div.checkbox
                 .h3 Toggle
-                include ../checkbox/_item
-                +checkbox-item({id: "item1", label: "Получать спецпредложения", type: "toggle", checked: true})
-                +checkbox-item({id: "item2", label: "Получать спецпредложения", type: "toggle"})
+                include ../checkbox/_list
+                +checkbox-list({
+                    type: "toggle",
+                    items: [
+                        {
+                            label: "Получать спецпредложения",
+                            checked: true
+                        },
+                        {
+                            label: "Получать спецпредложения"
+                        }
+                    ]
+                })
 
         br
         br

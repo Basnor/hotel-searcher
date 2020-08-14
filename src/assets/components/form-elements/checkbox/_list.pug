@@ -1,0 +1,18 @@
+mixin checkbox-list({type = "checkbox", items})
+    - 
+        var inputType = (type === "radio") ? type : "checkbox"
+        var markClassName = "checkbox__mark" + "_" + type
+
+    each item in items
+        -
+            const {label, description, name, checked} = item
+
+            var labelClassName = "checkbox__label"
+            labelClassName += description ? " checkbox__label_rich" : ""
+
+        label.checkbox__item
+            input(type=inputType, checked=checked, name=name)
+            div(class=markClassName)
+            span(class=labelClassName) !{label}
+                if description
+                    .checkbox__description !{description}
