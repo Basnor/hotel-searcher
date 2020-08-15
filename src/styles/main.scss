@@ -10,16 +10,17 @@
 @import "../assets/components/colors-type/__test__/palette.scss";
 @import "../assets/components/form-elements/__test__/palette.scss";
 
-.red {
-  color: red;
-}
-
 * {
   margin: 0;
   padding: 0;
 }
 
+html {
+  /* 1rem = 10px */
+  font-size: 62.5%;
+}
+
 body {
-  background-color: #FFFFFF;
+  background-color: #fff;
 }
 

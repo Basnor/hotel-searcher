@@ -2,31 +2,35 @@
 .palette {
     display: flex; 
     justify-content: space-around;
-    margin-top: 30px;
+    margin-top: 3rem;
 }
 
 /***** Color Palette  *****/
 .color-palette {
     display: grid; 
-    grid-template-columns: auto minmax(160px, 1fr);
-    grid-column-gap: 40px;
+    grid-template-columns: auto minmax(16rem, 1fr);
+    column-gap: 4rem;
     align-items: center;
     
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 
     &__box {
-        width: 70px;
-        height: 70px;
-        border-radius: 6px;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 0.6rem;
         grid-area: 1/1/3/2;
     }
     
     &__name {
-        @include font-styles($size: 19px, $weight: 700, $family: Quicksand);
+        @include font-styles($size: 1.9rem, $weight: 700, $family: Quicksand);
+
+        margin-top: 0.9rem;
     }
     
     &__value {
-        @include font-styles($size: 19px, $family: Quicksand);
+        @include font-styles($size: 1.9rem, $family: Quicksand);
+
+        margin-bottom: 0.5rem;
     }
 
     @mixin colors($colors...) {
@@ -50,9 +54,9 @@
 /***** Type Palette  *****/
 .type-palette {
     display: grid; 
-    grid-template-columns: 30px minmax(340px, 1fr);
-    grid-column-gap: 32px;
-    margin-bottom: 50px;
+    grid-template-columns: 3rem minmax(34rem, 1fr);
+    grid-column-gap: 3.2rem;
+    margin-bottom: 5rem;
 
     &__type {
         font-family: Montserrat;

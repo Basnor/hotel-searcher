@@ -1,12 +1,44 @@
 @import "../../colors-type/colors-type.scss";
 
+/***** Box Primary Variables *****/
+$checkbox-width-l: 32rem;
+$checkbox-width-m: 26.7rem;
+
+$checkbox-title-color: $color-dark-shade;
+$checkbox-label-color: $color-dark-shade50;
+$checkbox-rich-label-color:  $color-dark-shade75;
+$checkbox-mark-border-color: $color-purple;
+
+$checkbox-primary-font:   1.4rem;
+$checkbox-secondary-font: 1.2rem;
+
+$checkbox-box-height: 2rem;
+$checkbox-box-width:  2rem;
+$checkbox-border: 0.1rem solid $color-dark-shade25;
+$checkbox-border-radius: 0.4rem;
+
+$toggle-box-width:     4rem;
+$toggle-border-radius: 1rem;
+
+@mixin box-styles ($width: $checkbox-box-width, 
+                   $height: $checkbox-box-height, 
+                   $box-sizing: border-box,
+                   $border-radius: $checkbox-border-radius, 
+                   $border: $checkbox-border) {
+    width: $width;
+    height: $height;
+    box-sizing: $box-sizing;
+    border-radius: $border-radius;
+    border: $border;
+}
+
 .checkbox {
     display: grid;
-    grid-template-columns: minmax(auto, 320px);
-    grid-gap: 10px;
+    grid-template-columns: minmax(auto, $checkbox-width-l);
+    grid-gap: 1rem;
     
     & .h3 {
-        margin-bottom: 6px;
+        margin-bottom: 0.6rem;
         cursor: initial;
     }
 
@@ -15,57 +47,63 @@
     }
 
     &__label {
-        @include font-styles(14px, $color-dark-shade50, normal, 18px, Montserrat);
-        padding-left: 10px;
+        @include font-styles($checkbox-primary-font, 
+                             $checkbox-label-color, 
+                             normal, 1.8rem, Montserrat);
+        padding-left: 1rem;
         cursor: initial;
 
         &_rich {
-            @include font-styles(14px, $color-dark-shade75, bold, 18px, Montserrat);
+            @include font-styles($checkbox-primary-font, 
+                                 $checkbox-rich-label-color, 
+                                 bold, 1.8rem, Montserrat);
         }
     }
 
     &__description {
-        @include font-styles(12px, $color-dark-shade50, normal, 14px, Montserrat);
-        margin-top: 6.5px;
+        @include font-styles($checkbox-secondary-font, 
+                             $checkbox-label-color, 
+                             normal, 1.4rem, Montserrat);
+        margin-top: 0.65rem;
     }
 
     &__mark {
         &_checkbox {
-            @include box-styles(20px, 20px);
+            @include box-styles();
     
             cursor: pointer;
     
             /* Checkbox Mark Icon */
             input:checked ~ & {
-                border-color: $color-purple;
+                border-color: $checkbox-mark-border-color;
         
                 &::after {
-                    height: 8px;
-                    width: 6px;
+                    height: 0.8rem;
+                    width: 0.6rem;
         
                     content: "";
                     position: absolute;
 
-                    border: 2px solid;
+                    border: 0.2rem solid;
                     border-image-slice: 1;
                     border-image-source: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
                     border-top: 0;
                     border-left: 0;
-                    transform: translate(6px, 4px) rotate(45deg);
+                    transform: translate(0.6rem, 0.4rem) rotate(45deg);
                 }
             }
         }
 
         &_radio {
-            @include box-styles(20px, 20px, border-box, 50%);
+            @include box-styles($checkbox-box-width, $checkbox-box-height, border-box, 50%);
             cursor: pointer;
             
             /* Radio Checkbox Mark Icon */
             input:checked ~ & {
-                border-color: $color-purple;
+                border-color: $checkbox-mark-border-color;
                 &::before {
-                    height: 12px;
-                    width: 12px;
+                    height: 1.2rem;
+                    width: 1.2rem;
 
                     content: '';
                     position: absolute;
@@ -78,19 +116,20 @@
         }
 
         &_toggle {
-            @include box-styles(40px, 20px, border-box, 10px);
+            @include box-styles($toggle-box-width, 
+                                $checkbox-box-height, border-box, $toggle-border-radius);
             cursor: pointer;
 
-            margin-bottom: 3px;
+            margin-bottom: 0.3rem;
 
             input:checked ~ & {
-                border-color: $color-purple;
+                border-color: $checkbox-mark-border-color;
             }
 
             /* Toggle Checkbox Mark Icon */
             &::before {
-                height: 12px;
-                width: 12px;
+                height: 1.2rem;
+                width: 1.2rem;
 
                 content: '';
                 position: absolute;
@@ -110,7 +149,7 @@
 
     &_doubled {
         grid-template-columns: auto 1fr;
-        grid-gap: 10px 20px;
+        grid-gap: 1rem 2rem;
 
         & .h3 {
             grid-column: 1 / 3;
@@ -123,15 +162,15 @@
             &:checked {
                 & ~ .checkbox_expandable__items {
                     display: grid;
-                    grid-template-columns: minmax(auto, $textfield-width-m);
-                    grid-gap: 10px;
+                    grid-template-columns: minmax(auto, $checkbox-width-m);
+                    grid-gap: 1rem;
 
-                    margin-top: 18px;
+                    margin-top: 1.8rem;
                 }
         
                 & ~ .checkbox_expandable__icon {
                     &::after {
-                        transform: translate($textfield-width-m - 27px, -10px) rotate(-135deg)
+                        transform: translate($checkbox-width-m - 2.7rem, -1rem) rotate(-135deg)
                     }
                 }
             }
@@ -143,21 +182,23 @@
 
         &__icon {
             &::after {
-                height: 8px;
-                width: 8px;
+                height: 0.8rem;
+                width: 0.8rem;
 
                 content: "";
                 position: absolute;
 
-                border: 2px solid $color-dark-shade50;
+                border: 0.2rem solid $color-dark-shade50;
                 border-top: 0;
                 border-left: 0;
-                transform: translate($textfield-width-m - 27px, -14px) rotate(45deg);
+                transform: translate($checkbox-width-m - 2.7rem, -1.4rem) rotate(45deg);
             }
         }
 
         &__title {
-            @include font-styles(12px, $color-dark-shade, 700, 15px, Montserrat, uppercase);
+            @include font-styles($checkbox-secondary-font, 
+                                 $checkbox-title-color, 
+                                 700, 1.5rem, Montserrat, uppercase);
             cursor: pointer;
         }
     }

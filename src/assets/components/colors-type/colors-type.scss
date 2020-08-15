@@ -8,7 +8,7 @@ $color-purple:       #BC9CFF;
 $color-green:        #6FCF97;
 
 /***** Type Variables *****/
-$type-size-primary:   19px;
+$type-size-primary:   1.9rem;
 $type-family-primary: Montserrat;
 
 /***** Type Styles *****/
@@ -28,17 +28,17 @@ $type-family-primary: Montserrat;
 }
 
 .h1 {
-    @include font-styles(24px, $color-dark-shade, 700, 30px, Quicksand);
+    @include font-styles(2.4rem, $color-dark-shade, 700, 3rem, Quicksand);
 }
 
 .h2 {
-    @include font-styles(19px, $color-dark-shade, 700, 24px, Quicksand);
+    @include font-styles(1.9rem, $color-dark-shade, 700, 2.4rem, Quicksand);
 }
 
 .h3 {
-    @include font-styles(12px, $color-dark-shade, 700, 15px, Montserrat, uppercase);
+    @include font-styles(1.2rem, $color-dark-shade, 700, 1.5rem, Montserrat, uppercase);
 }
  
 .body {
-    @include font-styles(14px, $color-dark-shade75, 400, 24px);
+    @include font-styles(1.4rem, $color-dark-shade75, 400, 2.4rem);
 }
