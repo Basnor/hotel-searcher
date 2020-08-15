@@ -38,6 +38,19 @@ const fileLoaders = () => {
     return loaders
 }
 
+const pugLoaders = () => {
+    const loaders = [
+        {
+            loader: 'pug-loader',
+            options: {
+                root: path.resolve(__dirname, 'src/assets/components')
+            }
+        }
+    ]
+
+    return loaders
+}
+
 const plugins = () => {
     const base = [
         new webpack.ProvidePlugin({
@@ -86,12 +99,7 @@ const config = {
         rules: [
             { 
                 test: /\.pug$/,
-                use: {
-                    loader: 'pug-loader',
-                    options: {
-                        root: path.resolve(__dirname, 'src/assets/components')
-                    }
-                }
+                use: pugLoaders()
             },
             {
                 test: /\.css$/,
