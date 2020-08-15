@@ -46,7 +46,7 @@ html(lang="en")
             
             div.checkbox
                 .h3 Checkbox Buttons
-                include ../checkbox/_list
+                include /form-elements/checkbox/_list
                 +checkbox-list({
                     items: [
                         {
@@ -65,7 +65,7 @@ html(lang="en")
 
             div.checkbox
                 .h3 Rich Checkbox Buttons
-                include ../checkbox/_list
+                include /form-elements/checkbox/_list
                 +checkbox-list({
                     type: "checkbox",
                     items: [
@@ -82,7 +82,7 @@ html(lang="en")
 
             div.checkbox.checkbox_doubled
                 .h3 Radio Buttons
-                include ../checkbox/_list
+                include /form-elements/checkbox/_list
                 +checkbox-list({
                     type: "radio",
                     items: [
@@ -100,7 +100,7 @@ html(lang="en")
 
             div.checkbox
                 .h3 Toggle
-                include ../checkbox/_list
+                include /form-elements/checkbox/_list
                 +checkbox-list({
                     type: "toggle",
                     items: [
@@ -115,7 +115,7 @@ html(lang="en")
                 })
 
             div.checkbox
-                include ../checkbox/_expansion
+                include /form-elements/checkbox/_expansion
                 +checkbox-explist({
                     expansion: {
                         title: "Expandable checkbox list",
@@ -149,7 +149,7 @@ html(lang="en")
             br
 
             div.checkbox
-                include ../checkbox/_expansion
+                include /form-elements/checkbox/_expansion
                 +checkbox-explist({
                     expansion: {
                         title: "Expandable checkbox list",

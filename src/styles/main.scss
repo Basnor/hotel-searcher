@@ -7,8 +7,8 @@
 @import "../assets/components/form-elements/checkbox/checkbox.scss";
 
 // Styles for tests pages
-@import "../assets/components/colors-type/__test__/palette.scss";
-@import "../assets/components/form-elements/__test__/palette.scss";
+@import "../views/ui-kit/colors-type/palette.scss";
+@import "../views/ui-kit/form-elements/palette.scss";
 
 * {
   margin: 0;

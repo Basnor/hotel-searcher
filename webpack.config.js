@@ -60,7 +60,7 @@ const plugins = () => {
 
 function tests() {
     return [].map.call(arguments, page =>  new HtmlWebpackPlugin({
-      template: "./src/assets/components/" + page + "/__test__/index.pug",
+      template: "./src/views/ui-kit/" + page + "/index.pug",
       filename: "tests/" + page + ".html"
     }))
   }
@@ -86,7 +86,12 @@ const config = {
         rules: [
             { 
                 test: /\.pug$/,
-                use: ["pug-loader"]
+                use: {
+                    loader: 'pug-loader',
+                    options: {
+                        root: path.resolve(__dirname, 'src/assets/components')
+                    }
+                }
             },
             {
                 test: /\.css$/,
