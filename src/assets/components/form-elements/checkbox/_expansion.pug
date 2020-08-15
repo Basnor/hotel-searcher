@@ -1,0 +1,15 @@
+include ./_list
+
+mixin checkbox-explist({type, items, expansion})
+
+    if expansion
+        - const {title, opened} = expansion
+        - var titleClassName = "checkbox_expandable__title" + " textfield__box_size_m"
+
+        label(class=titleClassName)= title
+            input.checkbox_expandable__input(type="checkbox", checked=opened)
+            div.checkbox_expandable__icon
+            .checkbox_expandable__items
+                +checkbox-list({type, items})
+    else 
+        +checkbox-list({type, items})

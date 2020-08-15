@@ -114,6 +114,72 @@ html(lang="en")
                     ]
                 })
 
+            div.checkbox
+                include ../checkbox/_expansion
+                +checkbox-explist({
+                    expansion: {
+                        title: "Expandable checkbox list",
+                        opened: false
+                    },
+                    items: [
+                        {
+                            label: "Завтрак"
+                        },
+                        {
+                            label: "Письменный стол",
+                            checked: true
+                        },
+                        {
+                            label: "Стул для кормления",
+                            checked: true
+                        },
+                        {
+                            label: "Кроватка",
+                            checked: true
+                        },
+                        {
+                            label: "Телевизор"
+                        },
+                        {
+                            label: "Шампунь"
+                        }
+                    ]
+                })
+
+            br
+
+            div.checkbox
+                include ../checkbox/_expansion
+                +checkbox-explist({
+                    expansion: {
+                        title: "Expandable checkbox list",
+                        opened: true
+                    },
+                    items: [
+                        {
+                            label: "Завтрак"
+                        },
+                        {
+                            label: "Письменный стол",
+                            checked: true
+                        },
+                        {
+                            label: "Стул для кормления",
+                            checked: true
+                        },
+                        {
+                            label: "Кроватка",
+                            checked: true
+                        },
+                        {
+                            label: "Телевизор"
+                        },
+                        {
+                            label: "Шампунь"
+                        }
+                    ]
+                })
+
         br
         br
         br
