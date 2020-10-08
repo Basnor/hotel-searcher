@@ -1,10 +1,10 @@
 @import "./fonts.scss";
 
 // Components
-@import "../assets/components/colors-type/colors-type.scss";
-@import "../assets/components/form-elements/textfield/textfield.scss";
-@import "../assets/components/form-elements/dropdown/styles/main.scss"; //???
-@import "../assets/components/form-elements/checkbox/checkbox.scss";
+@import "../components/colors-type/colors-type.scss";
+@import "../components/form-elements/textfield/textfield.scss";
+@import "../components/form-elements/dropdown/styles/main.scss"; //???
+@import "../components/form-elements/checkbox/checkbox.scss";
 
 // Styles for tests pages
 @import "../views/ui-kit/colors-type/palette.scss";

@@ -43,7 +43,7 @@ const pugLoaders = () => {
         {
             loader: 'pug-loader',
             options: {
-                root: path.resolve(__dirname, 'src/assets/components')
+                root: path.resolve(__dirname, 'src/components')
             }
         }
     ]
@@ -65,16 +65,16 @@ const plugins = () => {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
-        ...tests('colors-type', 'form-elements')
+        ...pages('ui-kit/colors-type', 'ui-kit/form-elements')
     ]
 
     return base
 }
 
-function tests() {
+function pages() {
     return [].map.call(arguments, page =>  new HtmlWebpackPlugin({
-      template: "./src/views/ui-kit/" + page + "/index.pug",
-      filename: "tests/" + page + ".html"
+      template: "./src/views/" + page + "/index.pug",
+      filename: "pages/" + page + ".html"
     }))
   }
 
