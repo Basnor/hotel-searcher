@@ -1,8 +1,7 @@
 import 'item-quantity-dropdown/lib/item-quantity-dropdown.min';
 import 'item-quantity-dropdown/lib/item-quantity-dropdown.min.css';
 
-/* global jQuery */
-/* eslint-disable func-names */
+
 (function ($) {
   const defaults = {
     maxItems: Infinity,
@@ -88,6 +87,7 @@ import 'item-quantity-dropdown/lib/item-quantity-dropdown.min.css';
           totalItems = 0;
           itemCount[id] = 0;
           $counter.html(itemCount[id]);
+          $decrementButton.fadeTo(0, 0.33);
           updateDisplay();
         });
 
