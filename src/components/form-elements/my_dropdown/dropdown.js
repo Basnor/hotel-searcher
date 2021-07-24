@@ -1,101 +1,149 @@
-function toggleClass(elem, className) {
-    if (elem.className.indexOf(className) !== -1) elem.classList.remove(className);
-    else elem.classList.add(className);
+class Dropdown {
+    constructor(selector) {
+        this.el = selector;
+        this.sum = undefined;
 
-    return elem;
-}
+        this.init();
+    }
+    init() {
+        this.el.firstElementChild.addEventListener('click', this.toggleMenuDisplay.bind(this));
+        this.addCounters();
+        this.updateTitle();
+    }
+    addCounters() {
+        this.sum = 0;
 
-function toggleMenuDisplay(e) {
-    const dropdown = e.currentTarget.parentNode;
-    const menu = dropdown.querySelector('.dropdown__menu');
-    const icon = dropdown.querySelector('.dropdown__arrow');
+        const dropdownItems = this.el.querySelectorAll('.dropdown__item');
 
-    toggleClass(menu,'dropdown__menu_hide');
-    toggleClass(icon,'dropdown__arrow_dark');
-}
+        dropdownItems.forEach((item) => {
+            const control = new Controls(item, this.updateSum.bind(this));
 
-function createCountButton(type) {
-    const button = document.createElement('button');
-    button.className = 'dropdown__option__controls__' + type;
-    button.innerHTML = `<i class="icon-` + type + `"></i>`;
+            item.append(control.groupControls());
+            
+            this.sum += +control.value;
+        });
 
-    return button;
-}
+        return dropdownItems;
+    }
+    updateSum(oldVal, newVal) {
+        debugger
+        this.sum += parseInt(newVal) - parseInt(oldVal);
+        this.updateTitle();
+    }
+    updateTitle() {
+        let title = this.el.firstElementChild;
 
-function addControls(defaultValue) {
-    const controls = document.createElement('div');
-    controls.className = 'dropdown__option__controls';
+        if (this.sum > 0) {
+            title.innerText = this.sum;
+            return;
+        };
 
-    const counter = document.createElement('div');
-    counter.className = 'dropdown__option__counter';
-    counter.innerText = defaultValue;
-    updateTitleByCounters();
-
-    const decrementButton = createCountButton('decrement');
-    defaultValue < 1 ? decrementButton.classList.add('dropdown__option_disabled') : null;
-
-    const incrementButton = createCountButton('increment');
-
-    controls.append(decrementButton, counter, incrementButton);
-    return(controls);
-}
-
-function handleDecremenClick(e) {
-    const counter = e.currentTarget.nextSibling;
-    if(counter.innerText > 0){
-        counter.innerText--;
-    };
-
-    if(Number.parseInt(counter.innerText) === 0) {
-        e.currentTarget.classList.add('dropdown__option_disabled');
-    };
-
-    updateTitleByCounters();
-}
-
-function handleIncremenClick(e) {
-    const counter = e.currentTarget.previousSibling;
-    counter.innerText++;
-
-    const decrementButton = e.currentTarget.previousSibling.previousSibling;
-    if (Number.parseInt(counter.innerText) === 1){
-        decrementButton.classList.remove('dropdown__option_disabled');
-    };
+        if (title.hasAttribute("default")) {
+            title.innerText = title.getAttribute("default");
+        } else {
+            title.innerText = this.sum;
+        };
+    }
+    addListener() {
+        this.el.firstElementChild.addEventListener('click', (e) => this.toggleMenuDisplay());
+    }
+    toggleClass(elem, className) {
+        if (elem.className.indexOf(className) !== -1) elem.classList.remove(className);
+        else elem.classList.add(className);
     
-    updateTitleByCounters();
+        return elem;
+    }
+    toggleMenuDisplay() {
+        const dropdown = this.el;
+        const menu = dropdown.querySelector('.dropdown__list');
+        //const icon = dropdown.querySelector('.dropdown__arrow');
+    
+        this.toggleClass(menu, 'close');
+        //this.toggleClass(icon,'dropdown__arrow_dark');
+    }
 }
 
-function updateTitleByCounters() {
-    const dropdownTitle = document.querySelector('.dropdown__title');
-    const counters = document.querySelectorAll('.dropdown__option__counter');
-    let sum = 0;
-    counters.forEach(counter => {
-        sum += (Number.parseInt(counter.innerText));
-    });
 
-    if (sum != 0) {
-        dropdownTitle.innerText = sum;
-        return;
-    };
+class Controls {
+    constructor(selector, updateCallback) {
+        this.value = selector.hasAttribute('default') ? selector.getAttribute('default') : 0,
+        this.decrementButton = this.createCountButton('decrement');
+        this.incrementButton = this.createCountButton('increment');
+        this.counter = this.createCounter();
+        this.minValue = 0;
+        this.maxValue = 5;
 
-    if (dropdownTitle.hasAttribute("default")) {
-        dropdownTitle.innerText = dropdownTitle.getAttribute("default");
-    } else {
-        dropdownTitle.innerText = sum;
-    };
+        this.update = updateCallback;
+        this.init();
+    }
+    init() {
+        this.decrementButton.addEventListener('click', this.handleDecrementClick.bind(this));
+        this.incrementButton.addEventListener('click', this.handleIncrementClick.bind(this));
+    }
+    groupControls() {
+        const controls = document.createElement('div');
+        controls.className = 'dropdown__item__controls';
+        controls.append(this.decrementButton, this.counter, this.incrementButton);
 
+        return controls;
+    }
+    createCounter() {
+        const counter = document.createElement('div');
+        counter.className = 'dropdown__item__counter';
+        counter.innerText = this.value;
+
+        return counter;
+    }
+    createCountButton(type) {
+        const button = document.createElement('button');
+        button.className = 'dropdown__item__' + type;
+        button.innerHTML = `<i class="icon-` + type + `"></i>`;
+    
+        return button;
+    }
+    handleDecrementClick(e) {
+        e.preventDefault();
+
+        const counter = e.currentTarget.nextSibling;
+        const oldValue = this.value;
+
+        if (counter.innerText > this.minValue) {
+            this.value = --counter.innerText;
+        };
+
+        if (+counter.innerText === this.minValue) {
+            e.currentTarget.classList.add('disabled');
+        };
+
+        if (+counter.innerText === this.maxValue - 1) {
+            const incrementButton = e.currentTarget.nextSibling.nextSibling;
+            incrementButton.classList.remove('disabled');
+        };
+
+        this.update(oldValue, this.value)
+    }
+    handleIncrementClick(e) {
+        e.preventDefault();
+
+        const counter = e.currentTarget.previousSibling;
+        const oldValue = this.value;
+
+        if (counter.innerText < this.maxValue) {
+            this.value = ++counter.innerText;
+        };
+
+        if (+counter.innerText === this.maxValue) {
+            e.currentTarget.classList.add('disabled');
+        };
+
+        if (+counter.innerText === this.minValue + 1) {
+            const decrementButton = e.currentTarget.previousSibling.previousSibling;
+            decrementButton.classList.remove('disabled');
+        };
+
+        this.update(oldValue, this.value)
+    }
 }
 
-const dropdownTitle = document.querySelector('.dropdown__title');
-const dropdownOptions = document.querySelectorAll('.dropdown__option');
-
-dropdownTitle.addEventListener('click', toggleMenuDisplay);
-dropdownOptions.forEach(option => option.append(
-    addControls(option.hasAttribute('default') ? option.getAttribute('default') : 0)));
-
-const decrementButton = document.querySelectorAll('.dropdown__option__controls__decrement');
-const incrementButton = document.querySelectorAll('.dropdown__option__controls__increment');
-
-decrementButton.forEach(decrement => decrement.addEventListener('click', handleDecremenClick));
-incrementButton.forEach(increment => increment.addEventListener('click', handleIncremenClick));
-
+const dropdown = document.querySelector('.dropdown');
+const tmp = new Dropdown(dropdown);

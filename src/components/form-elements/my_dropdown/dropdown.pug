@@ -1,11 +1,10 @@
 mixin dropdown()
     .dropdown
-        div(class="dropdown__title", default="Сколько гостей") 
+        div(class="dropdown__title", wordforms="Гость Гостя Гостей", default="Сколько гостей") 
             i(class="dropdown__arrow")
         
-        .dropdown__menu.dropdown__menu_hide
-            div(class="dropdown__option", id="option1") Option 1
-            div(class="dropdown__option", id="option2") Option 2
-            div(class="dropdown__option", id="option3") Option 3
-            div(class="dropdown__option", id="option4") Option 4
+        .dropdown__list
+            div(class="dropdown__item", id="option1", default="2") Взрослые
+            div(class="dropdown__item", id="option2", default="1") Дети
+            div(class="dropdown__item", id="option3") Младенцы
 
