@@ -26,26 +26,33 @@ class Dropdown {
         return dropdownItems;
     }
     updateSum(oldVal, newVal) {
-        debugger
         this.sum += parseInt(newVal) - parseInt(oldVal);
         this.updateTitle();
     }
     updateTitle() {
-        let title = this.el.firstElementChild;
+        const title = this.el.firstElementChild;
+        const wordForms = title.getAttribute("wordforms").split(' ');
 
         if (this.sum > 0) {
-            title.innerText = this.sum;
+            title.innerText = this.sum + " " + this.declOfNum(this.sum, wordForms);
             return;
         };
 
         if (title.hasAttribute("default")) {
             title.innerText = title.getAttribute("default");
         } else {
-            title.innerText = this.sum;
+            title.innerText = this.sum + " " + this.declOfNum(this.sum, wordForms);
         };
     }
-    addListener() {
-        this.el.firstElementChild.addEventListener('click', (e) => this.toggleMenuDisplay());
+    // Choose correct word form
+    // @see https://realadmin.ru/coding/sklonenie-na-javascript.html
+    declOfNum(n, textForms) {  
+        n = Math.abs(n) % 100; 
+        const n1 = n % 10;
+        if (n > 10 && n < 20) return textForms[2];
+        if (n1 > 1 && n1 < 5) return textForms[1];
+        if (n1 == 1) return textForms[0];
+        return textForms[2];
     }
     toggleClass(elem, className) {
         if (elem.className.indexOf(className) !== -1) elem.classList.remove(className);
