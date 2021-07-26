@@ -1,3 +1,10 @@
+function toggleClass(elem, className) {
+    if (elem.className.indexOf(className) !== -1) elem.classList.remove(className);
+    else elem.classList.add(className);
+
+    return elem;
+}
+
 class Dropdown {
     constructor(selector) {
         this.el = selector;
@@ -54,18 +61,13 @@ class Dropdown {
         if (n1 == 1) return textForms[0];
         return textForms[2];
     }
-    toggleClass(elem, className) {
-        if (elem.className.indexOf(className) !== -1) elem.classList.remove(className);
-        else elem.classList.add(className);
-    
-        return elem;
-    }
     toggleMenuDisplay() {
         const dropdown = this.el;
         const menu = dropdown.querySelector('.dropdown__list');
         //const icon = dropdown.querySelector('.dropdown__arrow');
     
-        this.toggleClass(menu, 'close');
+        toggleClass(dropdown, 'dropdown_active');
+        toggleClass(menu, 'dropdown__list_close');
         //this.toggleClass(icon,'dropdown__arrow_dark');
     }
 }
@@ -74,11 +76,11 @@ class Dropdown {
 class Controls {
     constructor(selector, updateCallback) {
         this.value = selector.hasAttribute('default') ? selector.getAttribute('default') : 0,
+        this.minValue = 0;
+        this.maxValue = 12;
         this.decrementButton = this.createCountButton('decrement');
         this.incrementButton = this.createCountButton('increment');
         this.counter = this.createCounter();
-        this.minValue = 0;
-        this.maxValue = 5;
 
         this.update = updateCallback;
         this.init();
@@ -102,9 +104,24 @@ class Controls {
         return counter;
     }
     createCountButton(type) {
+        let icon;
         const button = document.createElement('button');
         button.className = 'dropdown__item__' + type;
-        button.innerHTML = `<i class="icon-` + type + `"></i>`;
+
+        switch (type) {
+            case 'increment':
+                icon = '+';
+                this.toggleIncrementButton(button);
+                break;
+            case 'decrement':
+                icon = '-';
+                this.toggleDecrementButton(button);
+                break;
+            default:
+                break;
+        }
+
+        button.innerHTML = `<span class="icon-` + type + `">` + icon + `</span>`;
     
         return button;
     }
@@ -118,14 +135,8 @@ class Controls {
             this.value = --counter.innerText;
         };
 
-        if (+counter.innerText === this.minValue) {
-            e.currentTarget.classList.add('disabled');
-        };
-
-        if (+counter.innerText === this.maxValue - 1) {
-            const incrementButton = e.currentTarget.nextSibling.nextSibling;
-            incrementButton.classList.remove('disabled');
-        };
+        const toggleDecrementButton = this.toggleDecrementButton.bind(this, e.currentTarget, oldValue);
+        toggleDecrementButton();
 
         this.update(oldValue, this.value)
     }
@@ -139,16 +150,30 @@ class Controls {
             this.value = ++counter.innerText;
         };
 
-        if (+counter.innerText === this.maxValue) {
-            e.currentTarget.classList.add('disabled');
-        };
-
-        if (+counter.innerText === this.minValue + 1) {
-            const decrementButton = e.currentTarget.previousSibling.previousSibling;
-            decrementButton.classList.remove('disabled');
-        };
+        const toggleIncrementButton = this.toggleIncrementButton.bind(this, e.currentTarget, oldValue);
+        toggleIncrementButton();
 
         this.update(oldValue, this.value)
+    }
+    toggleDecrementButton(el, oldVal) {
+        if (this.value === this.minValue) {
+            el.classList.add('disabled');
+        };
+
+        if (this.value === this.maxValue - 1 && oldVal === this.maxValue) {
+            const incrementButton = el.nextSibling.nextSibling;
+            incrementButton.classList.remove('disabled');
+        };
+    }
+    toggleIncrementButton(el, oldVal) {
+        if (this.value === this.maxValue) {
+            el.classList.add('disabled');
+        };
+
+        if (this.value === this.minValue + 1 && oldVal === this.minValue) {
+            const decrementButton = el.previousSibling.previousSibling;
+            decrementButton.classList.remove('disabled');
+        };
     }
 }
 
